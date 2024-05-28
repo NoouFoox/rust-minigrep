@@ -17,7 +17,6 @@ impl Config {
 }
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let file_txt = fs::read_to_string(config.file_path)?;
-    println!("With text:\n{file_txt}");
     for line in search(&config.query, &file_txt) {
         println!("{line}")
     }
